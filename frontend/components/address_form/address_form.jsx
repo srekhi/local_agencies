@@ -16,6 +16,7 @@ class AddressForm extends React.Component {
       this.setState({address1: event.target.value}) :
       this.setState({address2: event.target.value});
   }
+  
   render(){
     return (
     <form>
