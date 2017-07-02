@@ -4,18 +4,24 @@ class Api::AgenciesController < ApplicationController
     address2 = params[:address2].split(" ").join("+")
     geocoding_key = ENV['google_geocoding_key']
     places_key = ENV['google_places_key']
+    @agencies = []
+    [address1, address2].each do |address|
+      # => geocoding logic
+      geocoding_call = "https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&key=#{geocoding_key}"
 
-    # => geocoding logic
-    geocoding_call = "https://maps.googleapis.com/maps/api/geocode/json?address=#{address1}&key=#{geocoding_key}"
+      res = HTTParty.get(geocoding_call)
+      lat = res.parsed_response['results'][0]['geometry']['location']['lat']
+      lng = res.parsed_response['results'][0]['geometry']['location']['lng']
 
-    res = HTTParty.get(geocoding_call)
-    lat = res.parsed_response['results'][0]['geometry']['location']['lat']
-    lng = res.parsed_response['results'][0]['geometry']['location']['lng']
-
-    # => google places logic
-    radius = 10
-    places_call = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{lng}&radius=#{radius}&types=food&name=harbour&key=#{places_key}"
-    places_res = HTTParty.get(geocoding_call)
-    
+      # => google places logic
+      radius = 1000
+      type = 'real_estate_agency'
+      places_call = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{lng}&radius=#{radius}&type=#{type}&key=#{places_key}"
+      @agencies += HTTParty.get(places_call).parsed_response['results']
+      # listings is an array of result objects.
+    end
+    debugger
+    render :index
   end
+
 end
