@@ -6,3 +6,5 @@ const App = () => (
     <AddressForm />
   </div>
 );
+
+export default App;
