@@ -12,7 +12,9 @@ class AddressForm extends React.Component {
   }
 
   updateAddress(event){
-
+    event.target.id == 1 ?
+      this.setState({address1: event.target.value}) :
+      this.setState({address2: event.target.value});
   }
   render(){
     return (
@@ -22,17 +24,21 @@ class AddressForm extends React.Component {
         <input
           type="text"
           id="1"
-          onKeyPress={this.updateAddress}/>
+          value={this.state.address1}
+          onChange={this.updateAddress}/>
       </label>
-
+      <br />
       <label>
         Address 2:
         <input
           type="text"
           id="2"
-          onKeyPress={this.updateAddress}
+          value={this.state.address2}
+          onChange={this.updateAddress}
           />
       </label>
+      <br />
+      <button type="submit">Submit Addresses</button>
     </form>
   );
   }
