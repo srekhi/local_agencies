@@ -3,22 +3,21 @@ class Api::AgenciesController < ApplicationController
     debugger
     address1 = params[:address1]
     address2 = params[:address2]
-    geocoding_key = Figaro.google_geocoding_key
-    places_key = Figaro.google_places_key
+    geocoding_key = ENV['google_geocoding_key']
+    places_key = ENV['google_places_key']
 
-    geocoding_call = "https://maps.googleapis.com/maps/api/geocode/json?address=#{address1}&key=#{geocoding_key}"
-    geocode_res = HTTParty.get(geocoding_call)
+    # => geocoding logic
+    geocoding_call = "
+      https://maps.googleapis.com/maps/api/geocode/json?address=#{address1}&key=#{geocoding_key}"
 
+    res = HTTParty.get(geocoding_call)
     lat = res.parsed_response['results'][0]['geometry']['location']['lat']
     lng = res.parsed_response['results'][0]['geometry']['location']['lng']
 
-
-    # places_call = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json
-    #   ?location=-33.8670522,151.1957362
-    #   &radius=500
-    #   &types=food
-    #   &name=harbour
-    #   &key=YOUR_API_KEY'
-
+    # => google places logic
+    radius = 10
+    places_call = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{lng}&radius=#{radius}&types=food&name=harbour&key=#{places_key}"
+    places_res = HTTParty.get(geocoding_call)
+    
   end
 end
