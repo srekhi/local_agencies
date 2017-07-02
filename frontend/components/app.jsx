@@ -1,12 +1,11 @@
 import React from 'react';
-import AddressForm from './address_form/address_form.jsx';
+import AddressFormContainer from './address_form/address_form_container';
 // import AgencyList from './agency_list/agency_list';
 // <AgencyList />
 // App handles the top level rendering logic
 const App = () => (
   <div>
-    <AddressForm />
-
+    <AddressFormContainer />
   </div>
 );
 

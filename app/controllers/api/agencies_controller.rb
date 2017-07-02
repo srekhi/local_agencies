@@ -1,14 +1,12 @@
 class Api::AgenciesController < ApplicationController
   def index
-    debugger
-    address1 = params[:address1]
-    address2 = params[:address2]
+    address1 = params[:address1].split(" ").join("+")
+    address2 = params[:address2].split(" ").join("+")
     geocoding_key = ENV['google_geocoding_key']
     places_key = ENV['google_places_key']
 
     # => geocoding logic
-    geocoding_call = "
-      https://maps.googleapis.com/maps/api/geocode/json?address=#{address1}&key=#{geocoding_key}"
+    geocoding_call = "https://maps.googleapis.com/maps/api/geocode/json?address=#{address1}&key=#{geocoding_key}"
 
     res = HTTParty.get(geocoding_call)
     lat = res.parsed_response['results'][0]['geometry']['location']['lat']

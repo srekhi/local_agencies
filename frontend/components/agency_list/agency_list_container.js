@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import AgencyList from './agency_list';
+import fetchAgencies from '../../actions/agency_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
   agencies: state.agencies
-};
+});
 
-const mapDispatchToProps = state => {
-  
-};
+export default connect(mapStateToProps, null)(AgencyList);

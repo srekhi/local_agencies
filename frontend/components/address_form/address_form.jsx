@@ -1,14 +1,14 @@
 import React from 'react';
 
 class AddressForm extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       address1: "",
       address2: ""
     };
     this.updateAddress = this.updateAddress.bind(this);
-
+    this.fetchAgencies = this.fetchAgencies.bind(this);
   }
 
   updateAddress(event){
@@ -16,10 +16,15 @@ class AddressForm extends React.Component {
       this.setState({address1: event.target.value}) :
       this.setState({address2: event.target.value});
   }
-  
+
+  fetchAgencies(event){
+    event.preventDefault();
+    this.props.fetchAgencies(this.state.address1, this.state.address2);
+  }
+
   render(){
     return (
-    <form>
+    <form onSubmit={this.fetchAgencies}>
       <label>
         Address 1:
         <input
