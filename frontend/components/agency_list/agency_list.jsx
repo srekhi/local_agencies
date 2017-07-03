@@ -11,7 +11,7 @@ class AgencyList extends React.Component {
       return(
         <li key={index} className="agency-list-item">
         <p className="agency-name">{agency.name}</p>
-        <p className="agency-info">User's rating: {rating}</p>
+        <p className="agency-info">User rating: {rating}</p>
         <p className="agency-info">Distance: {agency['distance']} miles</p>
       </li>);
     });
