@@ -13,7 +13,9 @@ class AddressForm extends React.Component {
   }
 
   logout(){
+    // need to also clear the agencies here.
     this.props.logout();
+    this.props.clearAgencies();
   }
 
   updateAddress(event){
@@ -54,9 +56,9 @@ class AddressForm extends React.Component {
             />
         </label>
         <br />
-        <button id='submit-address-btn' type="submit">Find Local Realtors</button>
+        <button className='btn' type="submit">Find Local Realtors</button>
       </form>
-      <button id='logout-btn' type="submit" onClick={this.logout}>Logout</button>
+      <button className='btn' type="submit" onClick={this.logout}>Logout</button>
     </div>
   );
   }

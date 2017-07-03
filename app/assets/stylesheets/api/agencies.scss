@@ -6,8 +6,8 @@
   width: 100%;
 }
 
-li {
-  list-style: none;
+ul {
+  padding-left: 0;
 }
 
 .agency-name {
@@ -16,6 +16,15 @@ li {
 }
 
 .agency-list-item{
-  border: 1px solid black;
   margin-bottom: 3px;
+  width: 500px;
+}
+
+.agency-list-item, .agency-name {
+  list-style: none;
+}
+
+#agency-header {
+  font-size: 23px;
+  text-decoration: underline;
 }
