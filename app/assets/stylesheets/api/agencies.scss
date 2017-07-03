@@ -5,3 +5,17 @@
   height: 400px;
   width: 100%;
 }
+
+li {
+  list-style: none;
+}
+
+.agency-name {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.agency-list-item{
+  border: 1px solid black;
+  margin-bottom: 3px;
+}

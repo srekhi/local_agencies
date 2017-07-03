@@ -48,7 +48,7 @@ class AddressForm extends React.Component {
           />
       </label>
       <br />
-      <button type="submit">Submit Addresses</button>
+      <button id='submit-address-btn' type="submit">Find Local Realtors</button>
     </form>
   );
   }

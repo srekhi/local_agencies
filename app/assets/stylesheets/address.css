@@ -1,3 +1,13 @@
 .address-input {
   margin-left: 10px;
+  width: 230px;
+  margin: 5px;
+  padding: 5px;
+}
+
+
+#submit-address-btn{
+  width: 118px;
+  height: 45px;
+  margin-top: 20px;
 }
