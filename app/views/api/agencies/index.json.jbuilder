@@ -1,1 +1,1 @@
-json.agencies @agencies
+json.array! @agencies

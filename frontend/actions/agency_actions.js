@@ -8,7 +8,6 @@ export const receiveAgencies = agencies => ({
   agencies
 });
 
-
 export const fetchAgencies = (address1, address2) => dispatch => (
   APIUtil.fetchAgencies(address1, address2).then(agencies => (
     dispatch(receiveAgencies(agencies))

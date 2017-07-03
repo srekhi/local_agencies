@@ -20,7 +20,6 @@ class Api::AgenciesController < ApplicationController
       @agencies += HTTParty.get(places_call).parsed_response['results']
       # listings is an array of result objects.
     end
-    debugger
     render :index
   end
 
