@@ -27,32 +27,33 @@ class Api::AgenciesController < ApplicationController
       @agencies += HTTParty.get(places_call).parsed_response['results']
       # listings is an array of result objects.
     end
-    # sort agencies here
-    point1 = { lat: @lat1.to_i * Math::PI / 180,
-              lng: @lng1.to_i * Math::PI / 180
+    # these are the two address objects
+    point1 = { lat: @lat1.to_f * Math::PI / 180,
+              lng: @lng1.to_f * Math::PI / 180
             }
-    point2 = { lat: @lat2 = @lat2.to_i * Math::PI / 180,
-              lng: @lng2.to_i * Math::PI / 180
+    point2 = { lat: @lat2 = @lat2.to_f * Math::PI / 180,
+              lng: @lng2.to_f * Math::PI / 180
             }
     earth_radius = 3959 # miles
+    debugger
     @agencies.sort_by do |agency|
-      agency_lat = agency['geometry']['location']['lat'].to_i * Math::PI / 180
-      agency_lng = agency['geometry']['location']['lng'].to_i * Math::PI / 180
+      agency_lat = agency['geometry']['location']['lat'].to_f * Math::PI / 180
+      agency_lng = agency['geometry']['location']['lng'].to_f * Math::PI / 180
 
-      h = haversine(earth_radius, agency_lat, agency_lng, point1)
-        + haversine(earth_radius, agency_lat, agency_lng, point2)
+      h_val = haversine(earth_radius, agency_lat, agency_lng, point1) + haversine(earth_radius, agency_lat, agency_lng, point2)
 
-      2 * earth_radius * Math.asin(h)
+      2 * earth_radius * Math.asin(h_val)
     end
+    debugger
     render :index
   end
 
   def hav(radians)
-    (1 - Math.cos(radians))/2
+    (1 - Math.cos(radians))/2.to_f
   end
 
-  def haversine(earth_radius, agency_lat, agency_lng, point1)
-    hav(agency_lat - point1[:lat]) + Math.cos(agency_lat) * Math.cos(agency_lng)*hav(agency_lng - point1[:lng])
+  def haversine(earth_radius, agency_lat, agency_lng, point)
+    hav(agency_lat - point[:lat]) + Math.cos(agency_lat) * Math.cos(agency_lng)*hav(agency_lng - point[:lng])
   end
 
 end

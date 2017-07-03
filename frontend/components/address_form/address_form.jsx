@@ -28,17 +28,21 @@ class AddressForm extends React.Component {
       <label>
         Address 1:
         <input
+          className="address-input"
           type="text"
           id="1"
           value={this.state.address1}
+          placeholder="2100 Barton Springs Rd, Austin, TX 78746"
           onChange={this.updateAddress}/>
       </label>
       <br />
-      <label>
+      <label >
         Address 2:
         <input
+          className="address-input"
           type="text"
           id="2"
+          placeholder="1100 Congress Ave, Austin, TX 78701"
           value={this.state.address2}
           onChange={this.updateAddress}
           />

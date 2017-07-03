@@ -6,7 +6,12 @@ class AgencyList extends React.Component {
   }
 
   render(){
-    let agencies = this.props.agencies.map(agency => <li>{agency.name}</li>);
+    let agencies = this.props.agencies.map( agency => (
+      <li>
+        <li>{agency.name}</li>
+        <p>User's rating: {agency.rating}/5.0</p>
+      </li>
+    ));
     return(
       <div>
         <p>Agencies:</p>
