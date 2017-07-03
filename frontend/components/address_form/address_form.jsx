@@ -9,6 +9,11 @@ class AddressForm extends React.Component {
     };
     this.updateAddress = this.updateAddress.bind(this);
     this.fetchAgencies = this.fetchAgencies.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  logout(){
+    this.props.logout();
   }
 
   updateAddress(event){
@@ -24,32 +29,35 @@ class AddressForm extends React.Component {
 
   render(){
     return (
-    <form onSubmit={this.fetchAgencies}>
-      <label>
-        Address 1:
-        <input
-          className="address-input"
-          type="text"
-          id="1"
-          value={this.state.address1}
-          placeholder="2100 Barton Springs Rd, Austin, TX 78746"
-          onChange={this.updateAddress}/>
-      </label>
-      <br />
-      <label >
-        Address 2:
-        <input
-          className="address-input"
-          type="text"
-          id="2"
-          placeholder="1100 Congress Ave, Austin, TX 78701"
-          value={this.state.address2}
-          onChange={this.updateAddress}
-          />
-      </label>
-      <br />
-      <button id='submit-address-btn' type="submit">Find Local Realtors</button>
-    </form>
+    <div>
+      <form onSubmit={this.fetchAgencies}>
+        <label>
+          Address 1:
+          <input
+            className="address-input"
+            type="text"
+            id="1"
+            value={this.state.address1}
+            placeholder="2100 Barton Springs Rd, Austin, TX 78746"
+            onChange={this.updateAddress}/>
+        </label>
+        <br />
+        <label >
+          Address 2:
+          <input
+            className="address-input"
+            type="text"
+            id="2"
+            placeholder="1100 Congress Ave, Austin, TX 78701"
+            value={this.state.address2}
+            onChange={this.updateAddress}
+            />
+        </label>
+        <br />
+        <button id='submit-address-btn' type="submit">Find Local Realtors</button>
+      </form>
+      <button id='logout-btn' type="submit" onClick={this.logout}>Logout</button>
+    </div>
   );
   }
 }
