@@ -1,0 +1,51 @@
+.address-input {
+  margin-left: 10px;
+  width: 230px;
+  margin: 5px;
+  padding: 5px;
+}
+
+
+#submit-address-btn{
+  width: 118px;
+  height: 45px;
+  margin-top: 20px;
+}
+/* line 4, /Users/rohitrekhi/Documents/AA_Course/job-search/amne/local_agencies/app/assets/stylesheets/api/agencies.scss */
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+/* line 9, /Users/rohitrekhi/Documents/AA_Course/job-search/amne/local_agencies/app/assets/stylesheets/api/agencies.scss */
+li {
+  list-style: none;
+}
+
+/* line 13, /Users/rohitrekhi/Documents/AA_Course/job-search/amne/local_agencies/app/assets/stylesheets/api/agencies.scss */
+.agency-name {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* line 18, /Users/rohitrekhi/Documents/AA_Course/job-search/amne/local_agencies/app/assets/stylesheets/api/agencies.scss */
+.agency-list-item {
+  border: 1px solid black;
+  margin-bottom: 3px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
