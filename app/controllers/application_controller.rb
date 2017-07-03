@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
+
   def user_params
     params.require(:user).permit(:username, :password)
   end
