@@ -7,6 +7,7 @@ class Api::AgenciesController < ApplicationController
     places_key = ENV['google_places_key']
 
     @agencies = []
+    
     [address1, address2].each do |address|
       # => geocoding logic
       geocoding_call = "https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&key=#{geocoding_key}"

@@ -1,14 +1,15 @@
 import React from 'react';
-import AddressFormContainer from './address_form/address_form_container';
-import AgencyList from './agency_list/agency_list_container';
-import Welcome from './welcome';
-// <AgencyList />
-// App handles the top level rendering logic
+import { Switch, Route } from 'react-router';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import SessionFormContainer from './auth/session_form_container';
+import Home from './home';
+
 const App = () => (
   <div>
-    <Welcome />
-    <AddressFormContainer />
-    <AgencyList />
+    <Switch>
+      <ProtectedRoute exact path="/" component={Home} />
+      <Route component={SessionFormContainer} />
+    </Switch>
   </div>
 );
 
