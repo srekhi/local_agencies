@@ -98,7 +98,7 @@ class SessionForm extends React.Component {
     //USE THIS IN NAV BAR
     if (this.props.formType === 'login') {
       return (<span>
-        Dont have an account?  <Link to="/signup">Sign up</Link>
+        Don't have an account?  <Link to="/signup">Sign up</Link>
     </span>);
     } else {
       return (<span>
