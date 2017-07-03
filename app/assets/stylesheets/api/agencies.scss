@@ -13,6 +13,7 @@ ul {
 .agency-name {
   text-decoration: underline;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .agency-list-item{
@@ -25,6 +26,10 @@ ul {
 }
 
 #agency-header {
-  font-size: 23px;
+  font-size: 22px;
   text-decoration: underline;
+}
+
+.agency-info{
+  margin: 0
 }
