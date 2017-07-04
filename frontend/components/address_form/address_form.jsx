@@ -57,7 +57,7 @@ class AddressForm extends React.Component {
         <br />
         <button className='btn' type="submit">Find Local Realtors</button>
       </form>
-      <button className='btn' type="submit" onClick={this.logout}>Logout</button>
+      <button id="logout" className='btn' type="submit" onClick={this.logout}>Logout</button>
     </div>
   );
   }
