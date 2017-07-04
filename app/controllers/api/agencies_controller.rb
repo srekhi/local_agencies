@@ -1,5 +1,4 @@
 class Api::AgenciesController < ApplicationController
-
   DEGREES_TO_RADIANS = Math::PI / 180
   EARTH_RADIUS = 3959 #miles
   TEN_MILES_IN_METERS = 16093.4 #meters
@@ -10,7 +9,6 @@ class Api::AgenciesController < ApplicationController
     geocoding_key = ENV['google_geocoding_key']
     places_key = ENV['google_places_key']
     @agencies = []
-
     [address1, address2].each do |address|
       geocoding_call = "https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&key=#{geocoding_key}"
       res = HTTParty.get(geocoding_call)
