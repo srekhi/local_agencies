@@ -57,11 +57,6 @@ class SessionForm extends React.Component {
 
   demoLogin(event) {
     event.preventDefault();
-    // this.clearState();
-
-    // const savedUsername = "drake";
-    // const savedPassword = "password";
-    // const user = {username: savedUsername, password: savedPassword};
     this.clearState();
     let username = this.generateRandomUsername();
     let password = this.generateRandomPassword();
@@ -95,7 +90,6 @@ class SessionForm extends React.Component {
 
 
   navLink() {
-    //USE THIS IN NAV BAR
     if (this.props.formType === 'login') {
       return (<span>
         Don't have an account?  <Link to="/signup">Sign up</Link>
