@@ -6,9 +6,17 @@ class Api::AgenciesController < ApplicationController
 
   def index
     address1, address2 = format_addresses
+    @agencies = []
+    curate_agencies!(address1, address2)
+    sort_agencies!
+    render :index
+  end
+
+  private
+
+  def curate_agencies!(address1, address2)
     geocoding_key = ENV['google_geocoding_key']
     places_key = ENV['google_places_key']
-    @agencies = []
     [address1, address2].each do |address|
       geocoding_call = "https://maps.googleapis.com/maps/api/geocode/json?address=#{address}&key=#{geocoding_key}"
       res = HTTParty.get(geocoding_call)
@@ -18,11 +26,7 @@ class Api::AgenciesController < ApplicationController
       places_call = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{lng}&radius=#{TEN_MILES_IN_METERS}&type=#{SEARCH_TYPE}&key=#{places_key}"
       @agencies += HTTParty.get(places_call).parsed_response['results']
     end
-    sort_agencies!
-    render :index
   end
-
-  private
 
   def parse_api_response(res)
     [res.parsed_response['results'][0]['geometry']['location']['lat'],
