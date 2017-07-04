@@ -13,7 +13,6 @@ class AddressForm extends React.Component {
   }
 
   logout(){
-    // need to also clear the agencies here.
     this.props.logout();
     this.props.clearAgencies();
   }

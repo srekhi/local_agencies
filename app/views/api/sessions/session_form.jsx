@@ -57,11 +57,7 @@ class SessionForm extends React.Component {
 
   demoLogin(event) {
     event.preventDefault();
-    // this.clearState();
 
-    // const savedUsername = "drake";
-    // const savedPassword = "password";
-    // const user = {username: savedUsername, password: savedPassword};
     this.clearState();
     let username = this.generateRandomUsername();
     let password = this.generateRandomPassword();
@@ -95,7 +91,6 @@ class SessionForm extends React.Component {
 
 
   navLink() {
-    //USE THIS IN NAV BAR
     if (this.props.formType === 'login') {
       return (<span>
         Don't have an account?  <Link to="/signup">Sign up</Link>
@@ -109,14 +104,14 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    let error_exclamation = "";
+    let errorExclamation = "";
     if (this.props.errors.length > 0){
-      error_exclamation = <i id="splash-page-error-fa" className="fa fa-exclamation" aria-hidden="true"></i>;
+      errorExclamation = <i id="splash-page-error-fa" className="fa fa-exclamation" aria-hidden="true"></i>;
     }
     return(
       <section className="errors">
         <ul className="error-list">
-          <li>{error_exclamation}</li>
+          <li>{errorExclamation}</li>
           {this.props.errors.map((error, i) => (
             <li id="db-error-splash" key={`error-${i}`}>
               {error}

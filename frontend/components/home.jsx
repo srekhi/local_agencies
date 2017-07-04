@@ -2,8 +2,7 @@ import React from 'react';
 import AddressFormContainer from './address_form/address_form_container';
 import AgencyList from './agency_list/agency_list_container';
 import Welcome from './welcome/welcome_container';
-// <AgencyList />
-// App handles the top level rendering logic
+
 const Home = () => (
   <div>
     <Welcome />

@@ -29,8 +29,5 @@ class ApplicationController < ActionController::Base
     user.reset_session_token!
     session[:session_token] = nil
   end
-
-  def user_params
-    params.require(:user).permit(:username, :password, :email, :avatar_url)
-  end
+  
 end

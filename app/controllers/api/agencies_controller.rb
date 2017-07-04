@@ -1,7 +1,7 @@
 class Api::AgenciesController < ApplicationController
   DEGREES_TO_RADIANS = Math::PI / 180
   EARTH_RADIUS = 3959 #miles
-  TEN_MILES_IN_METERS = 16093.4 #meters
+  TEN_MILES_IN_METERS = 16093.4
   SEARCH_TYPE = 'real_estate_agency'
 
   def index
