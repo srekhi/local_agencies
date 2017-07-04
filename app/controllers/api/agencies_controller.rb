@@ -57,9 +57,12 @@ class Api::AgenciesController < ApplicationController
     @agencies.sort_by! do |agency|
       agency_lat = agency['geometry']['location']['lat'].to_f * DEGREES_TO_RADIANS
       agency_lng = agency['geometry']['location']['lng'].to_f * DEGREES_TO_RADIANS
-      h_val = haversine(agency_lat, agency_lng, point1) + haversine(agency_lat, agency_lng, point2)
-      # set the agency distance for display to user:
-      agency['distance'] = 2 * EARTH_RADIUS * Math.asin(Math.sqrt(h_val))
+      h_val1 = haversine(agency_lat, agency_lng, point1)
+      h_val2 = haversine(agency_lat, agency_lng, point2)
+
+      agency['distance'] = 2 * EARTH_RADIUS * Math.asin(Math.sqrt(h_val1)) +
+        2 * EARTH_RADIUS * Math.asin(Math.sqrt(h_val2))
+
       agency['distance']
     end
   end
