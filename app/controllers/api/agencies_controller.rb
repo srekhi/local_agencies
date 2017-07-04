@@ -5,7 +5,7 @@ class Api::AgenciesController < ApplicationController
   SEARCH_TYPE = 'real_estate_agency'
 
   def index
-    address1, address2 = format_params
+    address1, address2 = format_addresses
     geocoding_key = ENV['google_geocoding_key']
     places_key = ENV['google_places_key']
     @agencies = []
@@ -29,7 +29,7 @@ class Api::AgenciesController < ApplicationController
      res.parsed_response['results'][0]['geometry']['location']['lng']]
   end
 
-  def format_params
+  def format_addresses
     [params[:address1].split(" ").join("+"),
      params[:address2].split(" ").join("+")]
   end
@@ -54,8 +54,8 @@ class Api::AgenciesController < ApplicationController
       agency_lat = agency['geometry']['location']['lat'].to_f * DEGREES_TO_RADIANS
       agency_lng = agency['geometry']['location']['lng'].to_f * DEGREES_TO_RADIANS
       h_val = haversine(agency_lat, agency_lng, point1) + haversine(agency_lat, agency_lng, point2)
+      # set the agency distance for display to user:
       agency['distance'] = 2 * EARTH_RADIUS * Math.asin(Math.sqrt(h_val))
-      # set the agency distance for display to user
       agency['distance']
     end
   end
