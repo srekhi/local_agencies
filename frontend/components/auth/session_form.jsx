@@ -96,8 +96,7 @@ class SessionForm extends React.Component {
     </span>);
     } else {
       return (<span>
-        Already have an account?
-        <Link to="/login">Log in</Link>
+        Already have an account?  <Link to="/login">Log in</Link>
       </span>);
     }
   }
