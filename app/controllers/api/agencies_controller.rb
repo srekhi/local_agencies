@@ -40,13 +40,11 @@ class Api::AgenciesController < ApplicationController
         lat: @lat1.to_f * DEGREES_TO_RADIANS,
         lng: @lng1.to_f * DEGREES_TO_RADIANS
       }
-
     point2 =
       {
         lat: @lat2 = @lat2.to_f * DEGREES_TO_RADIANS,
         lng: @lng2.to_f * DEGREES_TO_RADIANS
       }
-
     [point1, point2]
   end
 
